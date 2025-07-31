@@ -37,13 +37,13 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
-          <div className="flex items-center space-x-3 group">
+          <div className="flex items-center space-x-2 group">
             <div className="relative">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow group-hover:scale-110 transition-all duration-300">
-                <span className="text-white font-bold text-xl lg:text-2xl">Z</span>
+              <div className="w-8 h-8 lg:w-9 lg:h-9 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow group-hover:scale-110 transition-all duration-300">
+                <span className="text-white font-bold text-lg lg:text-xl">Z</span>
               </div>
             </div>
-            <span className="text-2xl lg:text-3xl font-bold gradient-text group-hover:scale-105 transition-all duration-300">Zoodo</span>
+            <span className="text-xl lg:text-2xl font-bold gradient-text group-hover:scale-105 transition-all duration-300">Zoodo</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -118,8 +118,19 @@ const Header = () => {
         {isMenuOpen && (
           <>
             <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40" onClick={() => setIsMenuOpen(false)} />
-            <div className="md:hidden border-t border-border/20 py-4 relative z-50">
+            <div className="md:hidden border-t border-border/20 py-4 relative z-50 bg-background/95 backdrop-blur-sm">
             <nav className="flex flex-col space-y-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-muted-foreground">Navigation</span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-8 h-8 hover:bg-primary/10"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
               {navItems.map((item) => (
                 <a
                   key={item.name}
