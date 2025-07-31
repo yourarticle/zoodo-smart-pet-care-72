@@ -13,8 +13,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,hsl(var(--zoodo-purple))_0%,transparent_50%)] opacity-20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,hsl(var(--zoodo-blue))_0%,transparent_50%)] opacity-20" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-4 sm:pt-6 lg:pt-8">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center min-h-[calc(100vh-4rem)]">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left space-y-6 lg:space-y-8 fade-up">
             {/* AI Assistant Badge */}
@@ -81,14 +81,52 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Hero Image */}
-          <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
-                <img 
+          <div className="relative lg:scale-110 fade-up">
+            <div className="relative">
+              {/* Floating Elements - Mobile responsive */}
+              <div className="absolute -top-3 -left-3 lg:-top-6 lg:-left-6 w-10 h-10 lg:w-12 lg:h-12 bg-gradient-primary rounded-full flex items-center justify-center floating shadow-elegant">
+                <Stethoscope className="w-4 h-4 lg:w-6 lg:h-6 text-white" />
+              </div>
+              <div className="absolute -bottom-3 -right-3 lg:-bottom-6 lg:-right-6 w-12 h-12 lg:w-16 lg:h-16 bg-gradient-secondary rounded-full flex items-center justify-center floating shadow-elegant" style={{ animationDelay: '1s' }}>
+                <Shield className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+              </div>
+              <div className="absolute top-1/2 -left-4 lg:-left-8 w-8 h-8 lg:w-10 lg:h-10 bg-zoodo-pink rounded-full flex items-center justify-center floating shadow-elegant" style={{ animationDelay: '2s' }}>
+                <Heart className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+              </div>
+
+              {/* Main Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-elegant glow-effect">
+                <img
                   src={diversePets}
-                  alt="AI Veterinary Assistant"
-                  className="w-full h-full object-cover object-center"
+                  alt="Happy diverse pets in veterinary care"
+                  className="w-full h-auto object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
+              </div>
+
+              {/* Overlay Cards - Mobile responsive */}
+              <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 glass-card p-2 lg:p-4 rounded-xl lg:rounded-2xl shadow-elegant">
+                <div className="flex items-center space-x-2 lg:space-x-3">
+                  <div className="w-8 h-8 lg:w-12 lg:h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+                    <Stethoscope className="w-4 h-4 lg:w-6 lg:h-6 text-white" />
+                  </div>
+                  <div className="hidden lg:block">
+                    <div className="font-semibold text-sm">Dr. Doom AI</div>
+                    <div className="text-xs text-muted-foreground">Smart diagnosis</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 glass-card p-2 lg:p-4 rounded-xl lg:rounded-2xl shadow-elegant">
+                <div className="flex items-center space-x-2 lg:space-x-3">
+                  <div className="w-8 h-8 lg:w-12 lg:h-12 bg-gradient-secondary rounded-full flex items-center justify-center">
+                    <Shield className="w-4 h-4 lg:w-6 lg:h-6 text-white" />
+                  </div>
+                  <div className="hidden lg:block">
+                    <div className="font-semibold text-sm">Secure Records</div>
+                    <div className="text-xs text-muted-foreground">Blockchain protected</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

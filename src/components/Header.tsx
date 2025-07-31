@@ -35,15 +35,15 @@ const Header = () => {
         : 'bg-transparent border-b border-transparent'
     }`}>
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-18">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <div className="flex items-center space-x-2 group">
+          <div className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="w-8 h-8 lg:w-9 lg:h-9 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow group-hover:scale-110 transition-all duration-300">
-                <span className="text-white font-bold text-lg lg:text-xl">Z</span>
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow group-hover:scale-110 transition-all duration-300">
+                <span className="text-white font-bold text-xl lg:text-2xl">Z</span>
               </div>
             </div>
-            <span className="text-xl lg:text-2xl font-bold gradient-text group-hover:scale-105 transition-all duration-300">Zoodo</span>
+            <span className="text-2xl lg:text-3xl font-bold gradient-text group-hover:scale-105 transition-all duration-300">Zoodo</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -68,13 +68,14 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="w-9 h-9 lg:w-10 lg:h-10 hover:bg-primary/10 hover:scale-105 transition-all duration-200 relative group"
+              className="w-10 h-10 lg:w-12 lg:h-12 hover:bg-primary/10 hover:scale-110 transition-all duration-300 relative group"
             >
               {isDark ? (
-                <Sun className="h-4 w-4 lg:h-5 lg:w-5 group-hover:rotate-90 transition-transform duration-300" />
+                <Sun className="h-5 w-5 lg:h-6 lg:w-6 group-hover:rotate-180 transition-all duration-500" />
               ) : (
-                <Moon className="h-4 w-4 lg:h-5 lg:w-5 group-hover:-rotate-12 transition-transform duration-300" />
+                <Moon className="h-5 w-5 lg:h-6 lg:w-6 group-hover:rotate-12 transition-all duration-500" />
               )}
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
             </Button>
 
             {/* CTA Buttons */}
@@ -100,37 +101,25 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden w-9 h-9 hover:bg-primary/10 hover:scale-105 transition-all duration-200 relative group"
+              className="lg:hidden w-10 h-10 hover:bg-primary/10 hover:scale-110 transition-all duration-300 relative group"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div className="relative">
                 {isMenuOpen ? (
-                  <X className="h-4 w-4 group-hover:rotate-45 transition-transform duration-200" />
+                  <X className="h-5 w-5 group-hover:rotate-90 transition-all duration-300" />
                 ) : (
-                  <Menu className="h-4 w-4 group-hover:scale-105 transition-transform duration-200" />
+                  <Menu className="h-5 w-5 group-hover:scale-110 transition-all duration-300" />
                 )}
               </div>
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <>
-            <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40" onClick={() => setIsMenuOpen(false)} />
-            <div className="md:hidden border-t border-border/20 py-4 relative z-50 bg-background/95 backdrop-blur-sm">
+          <div className="md:hidden border-t border-border/20 py-4">
             <nav className="flex flex-col space-y-4">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-muted-foreground">Navigation</span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-8 h-8 hover:bg-primary/10"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -150,8 +139,7 @@ const Header = () => {
                 </Button>
               </div>
             </nav>
-            </div>
-          </>
+          </div>
         )}
       </div>
     </header>
