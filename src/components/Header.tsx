@@ -57,7 +57,6 @@ const Header = () => {
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
-                <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </a>
             ))}
           </nav>
