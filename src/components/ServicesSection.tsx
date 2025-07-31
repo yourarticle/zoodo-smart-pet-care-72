@@ -8,7 +8,10 @@ import {
   Clock,
   Star,
   ArrowRight,
-  Zap
+  Zap,
+  Search,
+  UserCheck,
+  Users
 } from "lucide-react";
 import serviceFindVet from "@/assets/service-find-vet.jpg";
 import serviceClinicHospital from "@/assets/service-clinic-hospital.jpg";
@@ -17,12 +20,13 @@ import servicePetTrainer from "@/assets/service-pet-trainer.jpg";
 
 const services = [
   {
-    icon: Stethoscope,
+    icon: Search,
     title: "Find Vet",
     description: "Discover qualified veterinarians near you based on specialization, reviews, and availability.",
     features: ["Verified professionals", "Real-time availability", "Specialty matching", "Patient reviews"],
     color: "zoodo-purple",
-    image: serviceFindVet
+    image: serviceFindVet,
+    animatedIcon: Search
   },
   {
     icon: Building2,
@@ -30,7 +34,8 @@ const services = [
     description: "Locate the best animal clinics and hospitals in your area with comprehensive facility information.",
     features: ["24/7 emergency care", "Advanced equipment", "Multi-specialty centers", "Insurance accepted"],
     color: "zoodo-blue",
-    image: serviceClinicHospital
+    image: serviceClinicHospital,
+    animatedIcon: MapPin
   },
   {
     icon: Video,
@@ -38,15 +43,17 @@ const services = [
     description: "Connect with veterinarians remotely for consultations, follow-ups, and emergency guidance.",
     features: ["HD video calls", "Instant messaging", "Digital prescriptions", "Record sharing"],
     color: "zoodo-pink",
-    image: serviceTeleconsultation
+    image: serviceTeleconsultation,
+    animatedIcon: Video
   },
   {
-    icon: Heart,
+    icon: UserCheck,
     title: "Find Pet Trainer",
     description: "Connect with certified pet trainers for behavioral training, obedience, and specialized skills.",
     features: ["Certified trainers", "Breed specialists", "Flexible scheduling", "Progress tracking"],
     color: "zoodo-orange",
-    image: servicePetTrainer
+    image: servicePetTrainer,
+    animatedIcon: Users
   }
 ];
 
@@ -73,48 +80,55 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 mb-16 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group glass-card rounded-3xl hover:shadow-elegant transition-all duration-500 hover:scale-105 fade-up overflow-hidden"
+              className="group glass-card rounded-2xl hover:shadow-elegant transition-all duration-500 hover:scale-105 fade-up overflow-hidden relative"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Service Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <div className={`absolute top-4 left-4 w-12 h-12 bg-gradient-to-br from-${service.color} to-${service.color}/70 rounded-xl flex items-center justify-center shadow-elegant`}>
-                  <service.icon className="w-6 h-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                
+                {/* Main Icon */}
+                <div className={`absolute top-3 left-3 w-10 h-10 bg-${service.color} rounded-xl flex items-center justify-center shadow-elegant`}>
+                  <service.icon className="w-5 h-5 text-white" />
+                </div>
+                
+                {/* Animated Icon */}
+                <div className="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                  <service.animatedIcon className="w-4 h-4 text-white group-hover:animate-pulse" />
                 </div>
               </div>
 
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 group-hover:gradient-text transition-all duration-300">
+              <div className="p-5">
+                <h3 className="text-lg font-bold mb-3 group-hover:gradient-text transition-all duration-300">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                   {service.description}
                 </p>
 
                 {/* Features */}
-                <div className="space-y-3 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 bg-${service.color} rounded-full`} />
-                      <span className="text-sm text-muted-foreground">{feature}</span>
+                <div className="space-y-2 mb-4">
+                  {service.features.slice(0, 2).map((feature, idx) => (
+                    <div key={idx} className="flex items-center space-x-2">
+                      <div className={`w-1.5 h-1.5 bg-${service.color} rounded-full`} />
+                      <span className="text-xs text-muted-foreground">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <Button variant="default" className="w-full group/btn bg-gradient-primary hover:bg-gradient-primary/90">
+                <Button variant="default" className="w-full group/btn text-sm py-2 bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300">
                   Explore Service
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3 h-3 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
@@ -123,20 +137,20 @@ const ServicesSection = () => {
 
         {/* Quick Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up">
-            <div className="text-3xl font-bold gradient-text">500+</div>
+          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up group hover:scale-105 transition-all duration-300">
+            <div className="text-3xl font-bold text-zoodo-purple">500+</div>
             <div className="text-sm text-muted-foreground">Verified Vets</div>
           </div>
-          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up" style={{ animationDelay: '100ms' }}>
-            <div className="text-3xl font-bold gradient-text">100+</div>
+          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up group hover:scale-105 transition-all duration-300" style={{ animationDelay: '100ms' }}>
+            <div className="text-3xl font-bold text-zoodo-blue">100+</div>
             <div className="text-sm text-muted-foreground">Partner Clinics</div>
           </div>
-          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up" style={{ animationDelay: '200ms' }}>
-            <div className="text-3xl font-bold gradient-text">24/7</div>
+          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up group hover:scale-105 transition-all duration-300" style={{ animationDelay: '200ms' }}>
+            <div className="text-3xl font-bold text-zoodo-pink">24/7</div>
             <div className="text-sm text-muted-foreground">Teleconsultation</div>
           </div>
-          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up" style={{ animationDelay: '300ms' }}>
-            <div className="text-3xl font-bold gradient-text">200+</div>
+          <div className="text-center space-y-2 p-6 glass-card rounded-2xl fade-up group hover:scale-105 transition-all duration-300" style={{ animationDelay: '300ms' }}>
+            <div className="text-3xl font-bold text-zoodo-orange">200+</div>
             <div className="text-sm text-muted-foreground">Certified Trainers</div>
           </div>
         </div>

@@ -7,29 +7,34 @@ import AIDemo from "@/components/AIDemo";
 const HeroSection = () => {
   const [isAIDemoOpen, setIsAIDemoOpen] = useState(false);
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-background/50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-background/50 pt-24 lg:pt-32">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-zoodo-purple/10 via-zoodo-blue/10 to-zoodo-pink/10" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,hsl(var(--zoodo-purple))_0%,transparent_50%)] opacity-20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,hsl(var(--zoodo-blue))_0%,transparent_50%)] opacity-20" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <div className="text-center lg:text-left space-y-8 fade-up">
+          <div className="text-center lg:text-left space-y-6 lg:space-y-8 fade-up">
             {/* AI Assistant Badge */}
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-primary/10 border border-primary/20 text-sm font-medium group hover:shadow-glow transition-all duration-300">
-              <Stethoscope className="w-5 h-5 mr-3 text-primary" />
-              <span>Meet <strong>Dr. Doom AI</strong> - Your Pet's Health Guardian</span>
-              <Sparkles className="w-4 h-4 ml-2 text-primary group-hover:scale-110 transition-transform" />
+            <div className="inline-flex flex-col sm:flex-row items-center px-4 sm:px-6 py-3 rounded-full bg-gradient-primary/10 border border-primary/20 text-sm font-medium group hover:shadow-glow transition-all duration-300">
+              <div className="flex items-center">
+                <Stethoscope className="w-5 h-5 mr-3 text-primary animate-pulse" />
+                <span className="whitespace-nowrap">Meet <strong>Dr. Doom AI</strong></span>
+              </div>
+              <div className="flex items-center mt-1 sm:mt-0 sm:ml-2">
+                <span className="text-xs sm:text-sm">- Your Pet's Health Guardian</span>
+                <Sparkles className="w-4 h-4 ml-2 text-primary group-hover:scale-110 transition-transform" />
+              </div>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
                 Your Pet.<br/><span className="gradient-hero-text">Our Priority.</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl">
+              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
                 Powered by Dr. Doom AI, Zoodo delivers intelligent, secure, and personalized veterinary care — anytime, anywhere.
               </p>
             </div>
@@ -39,14 +44,16 @@ const HeroSection = () => {
               <Button 
                 variant="default" 
                 size="xl" 
-                className="group bg-primary hover:bg-primary/90"
+                className="group bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300"
                 onClick={() => setIsAIDemoOpen(true)}
               >
                 <Stethoscope className="w-5 h-5 mr-2" />
                 TRY DR. DOOM AI
                 <Sparkles className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
               </Button>
-              <Button variant="outline" size="xl" className="group">
+              <Button variant="outline" size="xl" className="group relative hover:scale-105 transition-all duration-300">
+                <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
                 Get Instant Care
               </Button>
             </div>
