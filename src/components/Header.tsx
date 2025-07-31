@@ -118,37 +118,28 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <>
-            {/* Background Overlay with Blur */}
-            <div 
-              className="fixed inset-0 backdrop-blur-md bg-background/50 z-40 md:hidden"
-              onClick={() => setIsMenuOpen(false)}
-            />
-            
-            {/* Mobile Menu */}
-            <div className="md:hidden bg-background/95 border-t border-border/20 py-4 shadow-xl relative z-50">
-              <nav className="flex flex-col space-y-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <div className="flex flex-col space-y-3 pt-4 border-t border-border/20">
-                  <Button variant="ghost" size="sm" className="justify-start">
-                    Sign In
-                  </Button>
-                  <Button variant="default" size="sm">
-                    Get Started
-                  </Button>
-                </div>
-              </nav>
-            </div>
-          </>
+          <div className="md:hidden backdrop-blur-xl bg-background/80 border-t border-border/20 py-4 shadow-xl">
+            <nav className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <div className="flex flex-col space-y-3 pt-4 border-t border-border/20">
+                <Button variant="ghost" size="sm" className="justify-start">
+                  Sign In
+                </Button>
+                <Button variant="default" size="sm">
+                  Get Started
+                </Button>
+              </div>
+            </nav>
+          </div>
         )}
       </div>
     </header>
