@@ -47,8 +47,8 @@ const HeroSection = () => {
                 className="group bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300"
                 onClick={() => setIsAIDemoOpen(true)}
               >
-                <Stethoscope className="w-5 h-5 mr-2" />
-                TRY DR. DOOM AI
+                <Stethoscope className="w-7 h-7 mr-2" />
+                Try Dr. Doom AI
                 <Sparkles className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
               </Button>
               <Button variant="outline" size="xl" className="group relative hover:scale-105 transition-all duration-300">
