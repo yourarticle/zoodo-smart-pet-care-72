@@ -42,7 +42,6 @@ const Header = () => {
               <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow group-hover:scale-110 transition-all duration-300">
                 <span className="text-white font-bold text-xl lg:text-2xl">Z</span>
               </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-zoodo-pink rounded-full animate-pulse"></div>
             </div>
             <span className="text-2xl lg:text-3xl font-bold gradient-text group-hover:scale-105 transition-all duration-300">Zoodo</span>
           </div>
@@ -58,7 +57,7 @@ const Header = () => {
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
-                <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 animate-pulse" />
+                <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </a>
             ))}
           </nav>
