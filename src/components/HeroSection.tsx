@@ -15,8 +15,8 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content - Hero Image */}
-          <div className="relative lg:scale-110 fade-up">
+          {/* Left Content - Hero Image (Desktop) / Order 2 (Mobile) */}
+          <div className="relative lg:scale-110 fade-up order-2 lg:order-1">
             <div className="relative">
               {/* Floating Elements - Mobile responsive */}
               <div className="absolute -top-3 -left-3 lg:-top-6 lg:-left-6 w-10 h-10 lg:w-12 lg:h-12 bg-gradient-primary rounded-full flex items-center justify-center floating shadow-elegant">
@@ -66,8 +66,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Text */}
-          <div className="text-center lg:text-right space-y-6 lg:space-y-8 fade-up">
+          {/* Right Content - Text (Desktop) / Order 1 (Mobile) */}
+          <div className="text-center lg:text-left space-y-6 lg:space-y-8 fade-up order-1 lg:order-2">
             {/* AI Assistant Badge */}
             <div className="inline-flex flex-col sm:flex-row items-center px-4 sm:px-6 py-3 rounded-full bg-gradient-primary/10 border border-primary/20 text-sm font-medium group hover:shadow-glow transition-all duration-300">
               <div className="flex items-center">
@@ -91,7 +91,7 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <Button 
                 variant="default" 
                 size="xl" 
