@@ -35,7 +35,7 @@ const Header = () => {
         : 'bg-transparent border-b border-transparent'
     }`}>
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
           <div className="flex items-center space-x-3 group">
             <div className="relative">
@@ -68,14 +68,13 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="w-10 h-10 lg:w-12 lg:h-12 hover:bg-primary/10 hover:scale-110 transition-all duration-300 relative group"
+              className="w-9 h-9 lg:w-10 lg:h-10 hover:bg-primary/10 hover:scale-105 transition-all duration-200 relative group"
             >
               {isDark ? (
-                <Sun className="h-5 w-5 lg:h-6 lg:w-6 group-hover:rotate-180 transition-all duration-500" />
+                <Sun className="h-4 w-4 lg:h-5 lg:w-5 group-hover:rotate-90 transition-transform duration-300" />
               ) : (
-                <Moon className="h-5 w-5 lg:h-6 lg:w-6 group-hover:rotate-12 transition-all duration-500" />
+                <Moon className="h-4 w-4 lg:h-5 lg:w-5 group-hover:-rotate-12 transition-transform duration-300" />
               )}
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
             </Button>
 
             {/* CTA Buttons */}
@@ -101,17 +100,16 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden w-10 h-10 hover:bg-primary/10 hover:scale-110 transition-all duration-300 relative group"
+              className="lg:hidden w-9 h-9 hover:bg-primary/10 hover:scale-105 transition-all duration-200 relative group"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div className="relative">
                 {isMenuOpen ? (
-                  <X className="h-5 w-5 group-hover:rotate-90 transition-all duration-300" />
+                  <X className="h-4 w-4 group-hover:rotate-45 transition-transform duration-200" />
                 ) : (
-                  <Menu className="h-5 w-5 group-hover:scale-110 transition-all duration-300" />
+                  <Menu className="h-4 w-4 group-hover:scale-105 transition-transform duration-200" />
                 )}
               </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
             </Button>
           </div>
         </div>
