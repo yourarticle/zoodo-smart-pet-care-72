@@ -116,7 +116,9 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border/20 py-4">
+          <>
+            <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40" onClick={() => setIsMenuOpen(false)} />
+            <div className="md:hidden border-t border-border/20 py-4 relative z-50">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a
@@ -137,7 +139,8 @@ const Header = () => {
                 </Button>
               </div>
             </nav>
-          </div>
+            </div>
+          </>
         )}
       </div>
     </header>

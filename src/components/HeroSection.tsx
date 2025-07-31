@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,hsl(var(--zoodo-purple))_0%,transparent_50%)] opacity-20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,hsl(var(--zoodo-blue))_0%,transparent_50%)] opacity-20" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-20 sm:pt-24 lg:pt-32">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-16 sm:pt-18 lg:pt-24">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left space-y-6 lg:space-y-8 fade-up">
