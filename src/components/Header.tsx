@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X, Sparkles } from "lucide-react";
+import zoodooLogo from "@/assets/zoodo-logo.png";
 
 const Header = () => {
   const [isDark, setIsDark] = useState(true);
@@ -39,8 +40,12 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow group-hover:scale-110 transition-all duration-300">
-                <span className="text-white font-bold text-lg md:text-xl lg:text-2xl">Z</span>
+              <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-glow group-hover:scale-110 transition-all duration-300 border border-white/20">
+                <img 
+                  src={zoodooLogo} 
+                  alt="Zoodo Logo" 
+                  className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain"
+                />
               </div>
             </div>
             <span className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text group-hover:scale-105 transition-all duration-300">Zoodo</span>
